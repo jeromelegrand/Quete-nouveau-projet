@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sitemodels list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Icao</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for siteModel in siteModels %}
+            <tr>
+                <td><a href="{{ path('sitemodel_show', { 'id': siteModel.id }) }}">{{ siteModel.id }}</a></td>
+                <td>{{ siteModel.name }}</td>
+                <td>{{ siteModel.icao }}</td>
+                <td>{{ siteModel.latitude }}</td>
+                <td>{{ siteModel.longitude }}</td>
+                <td>{{ siteModel.city }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sitemodel_show', { 'id': siteModel.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

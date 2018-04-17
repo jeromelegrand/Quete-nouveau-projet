@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reservationmodel</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reservationModel.id }}</td>
+            </tr>
+            <tr>
+                <th>Nbreservedseats</th>
+                <td>{{ reservationModel.nbReservedSeats }}</td>
+            </tr>
+            <tr>
+                <th>Publicationdate</th>
+                <td>{% if reservationModel.publicationDate %}{{ reservationModel.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Wasdone</th>
+                <td>{% if reservationModel.wasDone %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reservationmodel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('reservationmodel_edit', { 'id': reservationModel.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
