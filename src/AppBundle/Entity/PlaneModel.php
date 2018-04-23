@@ -187,4 +187,3 @@ class PlaneModel
         return $this->isAvailable;
     }
 }
-

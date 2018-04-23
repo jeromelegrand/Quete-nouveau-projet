@@ -13,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Flight
 {
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Site", inversedBy="departures")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $departure;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -217,5 +223,28 @@ class Flight
     {
         return $this->wasDone;
     }
-}
 
+    /**
+     * Set departure
+     *
+     * @param \AppBundle\Entity\Site $departure
+     *
+     * @return Flight
+     */
+    public function setDeparture(\AppBundle\Entity\Site $departure)
+    {
+        $this->departure = $departure;
+
+        return $this;
+    }
+
+    /**
+     * Get departure
+     *
+     * @return \AppBundle\Entity\Site
+     */
+    public function getDeparture()
+    {
+        return $this->departure;
+    }
+}
