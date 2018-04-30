@@ -35,7 +35,7 @@ class ReviewController extends Controller
      * Creates a new review entity.
      *
      * @Route("/new", name="review_new")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
