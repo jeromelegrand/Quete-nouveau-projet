@@ -69,8 +69,11 @@ class ReviewController extends Controller
      */
     public function showAction(Review $review)
     {
+        $deleteForm = $this->createDeleteForm($review);
+
         return $this->render('review/show.html.twig', [
-            'review' => $review
+            'review' => $review,
+            'delete_form' => $deleteForm->createView(),
         ]);
     }
 
