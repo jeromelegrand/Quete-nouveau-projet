@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme edit_form  'boostrap_base_layout.html.twig' %}
+
+{% block body %}
+    <section class="container">
+        <div class="row">
+            <h1>Review edit</h1>
+        </div>
+        <div class="row">
+            {{ form_start(edit_form) }}
+            {{ form_widget(edit_form) }}
+            <input class="form-control btn btn-warning" type="submit" value="Modifier" />
+            {{ form_end(edit_form) }}
+        </div>
+        <div class="row">
+            <ul class="list list-inline">
+                <li>
+                    <a class="btn btn-primary" href="{{ path('review_index') }}">Back to the list</a>
+                </li>
+                <li>
+                    {{ form_start(delete_form) }}
+                        <input class="btn btn-danger" type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </li>
+            </ul>
+        </div>
+    </section>
+
+{% endblock %}

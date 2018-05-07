@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Flight;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Flight controller.
@@ -78,6 +79,9 @@ class FlightController extends Controller
      *
      * @Route("/{id}/edit", name="flight_edit")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @param Flight $flight
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, Flight $flight)
     {
@@ -103,6 +107,9 @@ class FlightController extends Controller
      *
      * @Route("/{id}", name="flight_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param Flight $flight
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, Flight $flight)
     {
@@ -122,15 +129,13 @@ class FlightController extends Controller
      * Creates a form to delete a flight entity.
      *
      * @param Flight $flight The flight entity
-     *
-     * @return \Symfony\Component\Form\Form The form
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(Flight $flight)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('flight_delete', array('id' => $flight->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
