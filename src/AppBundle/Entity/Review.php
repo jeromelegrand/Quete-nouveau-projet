@@ -31,7 +31,7 @@ class Review
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="publicationDate", type="date")
+     * @ORM\Column(name="publicationDate", type="datetime")
      */
     private $publicationDate;
 
