@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,8 +18,9 @@ class UserType extends AbstractType
             ->add('firstName')
             ->add('lastName')
             ->add('phoneNumber')
-            ->add('birthDate')
-            ->add('creationDate')
+            ->add('birthDate', BirthdayType::class, [
+                'widget' => 'single_text'
+            ])
             ->add('note')
             ->add('isACertifiedPilot');
     }/**
@@ -39,5 +41,9 @@ class UserType extends AbstractType
         return 'appbundle_user';
     }
 
+    public function getParent()
+    {
+        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+    }
 
 }
