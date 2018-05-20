@@ -38,6 +38,8 @@ class FlightController extends Controller
      *
      * @Route("/new", name="flight_new")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -64,6 +66,9 @@ class FlightController extends Controller
      *
      * @Route("/{id}", name="flight_show")
      * @Method("GET")
+     * @param Flight $flight
+     * @param FlightInfo $flightInfo
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Flight $flight, FlightInfo $flightInfo)
     {

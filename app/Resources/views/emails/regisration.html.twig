@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets%}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+        <ul class="navbar-nav">
+            <li class="nav-item">Flyaround</li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <h1>Resevation Flyaround</h1>
+
+    <h2>Destinataire :</h2>
+
+    <p>{{ receiver }}</p>
+
+    {% if pilot %}
+        <h2>Message :</h2>
+        <p>Une personne vient de réserver une place sur votre vol ;)</p>
+    {% else %}
+        <h2>Message :</h2>
+        <p>Merci d'avoir pris une réservation avec notre compagnie.</p>
+    {% endif %}
+{% endblock %}

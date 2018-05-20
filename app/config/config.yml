@@ -63,12 +63,26 @@ doctrine:
         auto_mapping: true
 
 # Swiftmailer Configuration
+#config de prod
+#swiftmailer:
+#    transport: '%mailer_transport%'
+#    host: '%mailer_host%'
+#    port: '%mailer_port%'
+#    username: '%mailer_user%'
+#    password: '%mailer_password%'
+#    auth_mode: '%mailer_auth_mode%'
+#    encryption: '%mailer_encryption%'
+#    spool: { type: memory }
+
+#config de dev vers mailtrap
 swiftmailer:
-    transport: '%mailer_transport%'
-    host: '%mailer_host%'
-    username: '%mailer_user%'
-    password: '%mailer_password%'
-    spool: { type: memory }
+    spool:     { type: memory }
+    transport: smtp
+    host:      smtp.mailtrap.io
+    username:  0421ca4f75520c
+    password:  09fe4634ed2ba0
+    auth_mode: cram-md5
+    port: 2525
 
 fos_user:
     db_driver: orm
